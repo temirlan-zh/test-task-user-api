@@ -10,12 +10,15 @@ Should use:
 REST app should consist of:
 
 - **POST /api/users**
-  Stores the user entry in db. After the creation, send an email and RabbitMQ event. Email can be dummy sending (no consumer needed).
+
+  	Stores the user entry in db. After the creation, send an email and RabbitMQ event. Email can be dummy sending (no consumer needed).
 
 - **GET /api/user/{userId}**
+
 	Returns a user in JSON representation.
 
 - **GET /api/user/{userId}/avatar**
+
 	Retrieves image by 'avatar' field. Returns its base64-encoded representation.
 
 	On the first request it should save the image as a plain file, create a MongoDB entry with userId and hash.
@@ -23,6 +26,7 @@ REST app should consist of:
 	On following requests should return the previously saved file.
 
 - **DELETE /api/user/{userId}/avatar**
+
 	Removes the file from the file system and the stored entry from db.
 
 Should cover code with unit and e2e tests.
